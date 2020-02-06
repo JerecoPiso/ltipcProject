@@ -67,7 +67,7 @@
          				  	
          		</div><!--class col-lg-4 end-->
          			<?php	  	
-         				  	
+         				 fdsdf
          				  }/*for each end*/
 
          			?>
