@@ -64,7 +64,7 @@
 									} ?>
 							
 							</div>
-							  <button class="see-info right" @click="spotInfo.municipality = '<?php echo $value->municipality; ?>';spotInfo.photo = '<?php echo $value->photo; ?>';spotInfo.desc = ' +<?php echo $value->description; ?>+';  spotInfo.name = ' <?php echo $value->name; ?>' ;modal = true;" v-b-tooltip.hover title="View spot"><span class="fa fa-eye"></span></button>
+							  <button class="see-info right" @click="spotInfo.municipality = '<?php echo $value->municipality; ?>';spotInfo.photo = '<?php echo $value->photo; ?>';spotInfo.desc = '<?php echo $value->description; ?>';  spotInfo.name = ' <?php echo $value->name; ?>' ;modal = true;" v-b-tooltip.hover title="View spot"><span class="fa fa-eye"></span></button>
 	         			 </div>
          			</div><!--clas card end-->
          				  	

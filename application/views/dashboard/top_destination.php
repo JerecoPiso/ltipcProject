@@ -25,23 +25,6 @@
 
   </div><!--class col-lg-2 end-->
 
-  
-  
-  <!--for the modal delete in action-->
-  <div class="Modal" v-if="modalRemove">
-     <button class="close mr-2 mt-2" @click="modalRemove = false; clear();">&times;</button>
-     <div class="modalHeader p-2">
-        <h4 class="ml-2">Delete Municipality</h4>
-     </div>
-     <div class="modalBody p-3">
-       <h6 class="text-center red">Are you sure you want to delete this data?</h6>
-       
-       <button class="cancel" @click="modalRemove = false">Cancel</button> 
-       <button class="yes" @click="modalRemove = false;">Yes</button>
-
-     </div>
-  </div><!--end class modal-->
-
   <div class="col-lg-10">
     <strong class="strong-success" v-if="success">{{success}}</strong>
      <div class="page-name">
@@ -53,9 +36,9 @@
         <h6 class="alert alert-info text-center">Top Destination</h6>
            <ul class="list-group top-destinations-list">
                 <li class="list-group-item" v-for="destination in destinations">
-                        <img class="top-destination-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + destination.photo">
-                         <strong>{{destination.name}}</strong><br>
-                         <button class="remove pull-right" v-b-tooltip.hover title="Remove to top destination" @click="topDestination.spotId = destination.id;remove()"> Remove</button>
+                    <img class="top-destination-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + destination.photo">
+                    <strong>{{destination.name}}</strong><br>
+                    <button class="remove pull-right" v-b-tooltip.hover title="Remove to top destination" @click="topDestination.spotId = destination.id;remove()"> Remove</button>
                 </li>
            </ul>
         </div>
@@ -63,12 +46,11 @@
             <h6 class="alert alert-info text-center">Select spot to add in the top destination</h6>
             <ul class="list-group">
                 <li class="list-group-item" v-for="spot in spots" style="color: black;" v-if="spot.top_destination_status != 'Yes'">{{spot.name}}
-                <button class="pull-right add-to-destination" v-b-tooltip.hover title="Add to top destination" @click="topDestination.spotId = spot.id; topDestination.name = spot.name; topDestination.photo = spot.photo; add();;">Add</button>
-               </li>
-                
+                    <button class="pull-right add-to-destination" v-b-tooltip.hover title="Add to top destination" @click="topDestination.spotId = spot.id; topDestination.name = spot.name; topDestination.photo = spot.photo; add();;">Add</button>
+                </li>            
              </ul>
         </div>
-    </div>
+    </div><!--class row end-->
     
    
   </div><!--class col-lg-10 end-->
