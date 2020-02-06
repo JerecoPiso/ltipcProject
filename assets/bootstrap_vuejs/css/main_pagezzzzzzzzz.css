@@ -1,0 +1,439 @@
+@media 	(min-width: 576px) and (max-width: 768px){
+	/*LTIPC MEANING*/
+	.ltipc{
+		font-weight: bold;
+		margin-left: 10%;
+		margin-top: 3%;
+		font-size: 100%;
+	}
+	/*above text of all the tourist spots*/
+	.all-title{
+		border-radius: 10rem;
+		width: 70%;
+		display: block;
+		margin: auto;
+	}
+	footer{
+		background-color: rgb(0,163,204);
+		bottom: 0;
+		position: fixed;
+		width: 100%;
+		text-align: center;
+		padding: 3%;
+		color: rgb(255,255,255);
+	}
+	.logo{
+		border-radius: 50%;
+		width: 15%;
+		float: left;
+		margin-left: 10%;	
+		margin-right: 0.5%;
+	}
+}
+/* for devices that has 768px to 992px screen*/
+@media only screen and (min-width: 768px) and (max-width: 992px){
+	/*above text of all the tourist spots*/
+	.all-title{
+		border-radius: 10rem;
+		width: 60%;
+		display: block;
+		margin: auto;
+	}
+	/*LTIPC MEANING*/
+	.ltipc{
+		font-weight: bold;
+		margin-left: 10%;
+		font-size: 100%;
+		margin-top: 3%;
+	
+	}
+	footer{
+		background-color: rgb(0,163,204);
+		width: 100%;
+		text-align: center;
+		padding: 3%;
+		color: rgb(255,255,255);
+	
+	}
+	.logo{
+		border-radius: 50%;
+		width: 16%;
+		float: left;
+		margin-left: 10%;	
+		margin-right: 0.5%;
+	}
+	.carousel-img{
+
+		width: 1280px;
+		height: 500px;
+	}
+}
+/* for devices that has 992px to 1200px screen*/
+@media only screen and (min-width: 992px) and (max-width: 1200px){
+	/*above text of all the tourist spots*/
+	.all-title{
+		border-radius: 10rem;
+		width: 40%;
+		display: block;
+		margin: auto;
+	}
+	/*LTIPC MEANING*/
+	.ltipc{
+		font-weight: bold;
+		margin-left: 10%;
+		font-size: 70%;
+		margin-top: 3%;
+	
+	}
+	footer{
+		background-color: rgb(0,163,204);
+		width: 100%;
+		text-align: center;
+		padding: 3%;
+		color: rgb(255,255,255);
+	}
+	.logo{
+		border-radius: 50%;
+		width: 18%;
+		float: left;
+		margin-left: 10%;	
+		margin-right: 0.5%;
+	}
+	.carousel-img{
+
+		width: 1280px;
+		height: 490px;
+	}
+}
+/* for devices that has greater or equal to 1200px screen */
+@media only screen and (min-width: 1200px){
+	/*above text of all the tourist spots*/
+	.all-title{
+		border-radius: 10rem;
+		width: 30%;
+		display: block;
+		margin: auto;
+	}
+	/*LTIPC MEANING*/
+	.ltipc{
+		font-weight: bold;
+		margin-left: 10%;
+		font-size: 70%;
+		margin-top: 3%;
+	
+	}
+	footer{
+		background-color: rgb(0,163,204);
+		width: 100%;
+		text-align: center;
+		padding: 3%;
+		color: rgb(255,255,255);
+
+	}
+	.logo{
+		border-radius: 50%;
+		width: 18%;
+		float: left;
+		margin-left: 10%;	
+		margin-right: 0.5%;
+	}
+	.carousel-img{
+
+		width: 100%;
+		height: 350px;
+	}
+}
+/*for the footer*/
+footer{
+	background-color: rgb(0, 179, 134);
+
+	width: 100%;
+	text-align: center;
+	padding: 2%;
+	color: rgb(255,255,255);
+}
+/*MAIN PAGE HEADER*/
+.header{
+	background-color: rgb(0, 179, 134);
+	text-align: center;
+	padding: 1.5%;
+	font-size: 200%;
+	color: rgb(255,255,255);
+	letter-spacing: 2px;
+	margin: 0;
+	
+	
+}
+
+/*FOR THE LINKS IN THE NAVBAR*/
+li a{
+	color: rgb(255,255,255);
+	font-size: 50%;
+	padding: 0.5%;
+}
+li a:hover{
+	background-color: rgba(255,255,255,0.2);
+	color: rgb(255,255,255);
+	
+}
+.links{
+	color: rgb(0,0,0);
+	clear:both;
+	float: left;
+}
+.links:hover{
+	color: rgb(0,0,0);
+}
+/*dropdown for the spots category*/
+.dropdown{
+	position: absolute;
+	width: auto;
+	background-color: rgb(255,255,255);
+	
+}
+/*for the navigation in the top*/
+.nav{
+	background-color: rgb(0, 179, 134);
+	margin-top: 2%;
+
+}
+/*for the its more fun in the philippines photo*/
+.slogan{
+	width: 100%;
+	padding: 2%; 
+	height: 200px;
+	z-index: 10;
+	background-color: rgb(0, 179, 134);
+}
+/*for the div of the search input*/
+.search{
+	height: 30px;
+	width: 95%;
+	margin-right: 15%;
+	font-size: 14px;
+	margin-top: 0;
+}
+/*for the placehoder of the search input*/
+#search-input::placeholder{
+	color: rgb(255,255,255);
+	opacity: 0.8;
+}
+/*the search input*/
+#search-input{
+	background-color: transparent;
+	color: rgb(255,255,255);
+	border: none;
+	border-bottom: 2px solid rgb(255,255,255);
+}
+/*for the focusing to the input box for search*/
+#search-input:focus{
+	background-color: transparent;
+	color: rgb(255,255,255);
+	border-bottom: 2px solid rgb(255,255,255);
+
+}
+/*fa fa-logo of search*/
+.search-logo{
+	background-color: transparent;
+	color: rgb(255,255,255);
+	font-size: 30px;
+	border: none;
+	cursor: pointer;
+}
+/*maximum size of the td of the tourist spot photo*/
+.max-spot-photo{
+	max-width: 80px;
+}
+/*for the photo of the list of admins*/
+.spot-photo{
+	width: 100%;
+	height: 180px;
+}
+
+.m-0{
+	margin: 0;
+}
+.see-info{
+	background-color: transparent;
+	border: none;
+	color: rgb(0,163,204);
+}
+.spot-name{
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+/*for the dropdown of the spots categories*/
+.categories-dropdown{
+	position: absolute;
+	z-index: 10;
+	max-height: 250px;
+	overflow: auto;
+}
+.min-h{
+	min-height: 300px;
+}
+/*for the message no matched for the spot category*/
+.no-result{
+	margin-top: 10%;
+
+}
+.search-value{
+	color: rgb(240,0,0);
+}
+/*for the autocomplete result in the search box*/
+.autocomplete{
+	
+	padding: 1%;
+	font-size: 14px;
+	text-align: left;
+	color: rgb(0,0,0);
+}
+.ul-autocomplete{
+	width: 64%;
+	padding: 0;
+	position: absolute;
+	z-index: 10;
+}
+/*for the division of the search box and autocomplete div*/
+.div-search{
+	width: 100%;
+}
+/*for the caption in the carousel*/
+.spot-caption{
+	width: 40%;
+	height: 23%;
+	border-radius: 10rem;
+	display: block;
+	margin: auto;
+	background-color: rgba(0,0,0,0.7);
+
+}
+.nav-item .links:hover{
+	background-color: rgb(0, 179, 134);
+	color: rgb(255,255,255);
+	width: 100%;
+	text-align: left;
+}
+/*row for the list of all tourist spots*/
+.all-spots{
+	max-height: 800px;
+    overflow: auto;
+}
+
+.right{
+	float: right;
+	
+}
+.descript{
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 3%;
+	max-height: 70px;
+	
+}
+.p-desc{
+	word-wrap: break-word;
+	max-width: 100%;
+	border: 1px solid rgb(0, 163, 204);
+	padding: 1%;
+}
+.view-photo{
+	max-height: 170px;
+	width: 100%;
+	
+}
+/*for the modal edit in action */
+.ModalView{
+	position: fixed;
+	width: 40%;
+	margin-left: 30%;
+	z-index: 20;
+	max-height: 500px;
+	overflow: auto;
+	
+
+}
+/*for the modal header in action */
+.modalViewHeader{
+	background-color: rgb(0, 163, 204);
+	height: auto;
+	color: rgb(255,255,255);
+}
+/*the body of the modal*/
+.modalViewBody{
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(57, 115, 172); 
+	max-height: 500px;
+	overflow: auto;
+	
+}
+.spot-head, .spot-body{
+	
+	background-color: rgb(0, 163, 204);
+	color: rgb(255,255,255);
+}
+.top-destination-title{
+	z-index: 10;
+	background-color:rgb(51, 204, 204);
+	color: rgb(255,255,255);
+	padding: 1%;
+	margin: auto;
+	display: block;
+	width: 30%;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	
+
+}
+/* div for the top destination */
+.top-destination{
+	margin:0;
+	padding: 0 3% 3% 3%;
+	z-index: 20;
+}
+/* div for the top destination photos */
+.top-destination-photo{
+	height: 150px;
+	width: 100%;
+	margin-top: 3%;
+}
+.top-destination-photo:hover{
+	opacity: 0.7;
+}
+/* for the top destination */
+.photos {
+	position: relative;
+	width: 100%;
+  }
+ 
+
+.middle {
+
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+}
+.photos:hover{
+	opacity: 0.7;
+	
+}
+
+.photos:hover .middle {
+	opacity: 1;
+}
+/* text of the destination photo */
+.text {
+	background-color: rgba(0,0,0,0.8);
+	color: white;
+	font-size: 16px;
+	padding: 16px 32px;
+	width: auto;
+  }
+ .demo{
+	background-color: rgb(0, 179, 134);
+ }

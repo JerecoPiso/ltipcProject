@@ -1,0 +1,341 @@
+/*for the header in the admin panel*/
+.header{
+	background-color: rgb(0, 163, 204);
+	height: 50px;
+	color: rgb(255,255,255);
+	margin: 0;
+	
+}
+/*for the admin panel text*/
+.admin-panel-text{
+	font-weight: bold;
+	font-size: 200%;
+	letter-spacing: 2px;
+}
+/*for the side nav at the admin panel*/
+@media(min-width: 1200px){
+	.side-nav{
+		background-color: rgb(0, 163, 204);
+		height: 100vh;
+	}
+}
+@media(min-width: 768px){
+	.side-nav{
+		background-color: rgb(0, 163, 204);
+		
+	}
+}
+/*for the links in the side-nav*/
+.flex-column .nav-item .nav-link{
+	color: rgb(255,255,255);
+	font-weight: bolder;
+	letter-spacing: 1px;
+	font-size: 14px;
+	
+}
+/*for the links in the side-nav*/
+.flex-column .nav-item .nav-link:hover{
+	background-color: rgba(255,255,255,0.2);
+	
+}
+/*for the icon of muicipality in the side nav of the admin panel*/
+.municipality-icon{
+	font-size: 20px;
+	margin-right: 10px;
+}
+/*for the button for editing*/
+.btn-edit{
+	background-color: rgb(0,165,0);
+	border: none;
+	padding: 2%;
+	color: rgb(255,255,255);
+	min-width: 80px;
+	max-width: 80px;
+	min-height: 40px;
+	max-height: 40px;
+}
+/*for the button for delete*/
+.btn-delete{
+	background-color: rgb(230,0,0);
+	border: none;
+	padding: 2%;
+	color: rgb(255,255,255);
+	max-width: 100px;
+	min-width: 80px;
+	min-height: 40px;
+	max-height: 40px;
+}
+/*for the modal edit in action */
+.Modal{
+	position: fixed;
+	width: 30%;
+	margin-left: 35%;
+	z-index: 20;
+
+}
+/*for the modal header in action */
+.modalHeader{
+	background-color: rgb(0, 163, 204);
+	height: auto;
+	color: rgb(255,255,255);
+}
+/*the body of the modal*/
+.modalBody{
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(57, 115, 172); 
+}
+/*for the add button in all the modal*/
+.add{
+	width: 100%;
+	border: none;
+	background-color: rgb(0, 163, 204);
+	color: rgb(255,255,255);
+	padding: 1.5%;
+	margin-top: 2%;
+}
+/*for the cancel button in delete modal*/
+.cancel{
+	width: 35%;
+	margin-left: 15%;
+	border: none;
+	background-color: rgb(255,0,0);
+	color: rgb(255,255,255);
+	padding: 1.2%;
+}
+/*for the yes button in delete modal*/
+.yes{
+	width: 35%;
+	border: none;
+	color: rgb(255,255,255);
+	background-color: rgb(0, 163, 204);
+	padding: 1.2%;
+}
+/*for the text warning in deleting*/
+.red{
+	color: red;
+	letter-spacing: 1px;
+}
+/*for the min height of the tables in the admin panel*/
+.table-min-height{
+	max-height: 600px;
+	max-width: 1400px;
+	overflow: auto;
+}
+.pull-right{
+	float: right;
+}
+/*for the edit button*/
+.edit{
+	background-color: rgb(0, 163, 204);
+	width: 100%;
+	border: none;
+	color: rgb(255,255,255);
+	padding: 1.2%;
+}
+/*for the user profile in the right side of the top of the admin panel*/
+.img{
+	min-width: 38px;
+	max-width: 38px;
+	margin-top:1%;
+	clear: both;
+	float: right;
+	margin-right: 5%;
+	border-radius: 50%;
+}
+/*for the  dropdown of the profile*/
+.logos-dropdown{
+	z-index: 10;
+	background-color: rgb(255,255,255);
+	max-width: 150px;
+	border: 1px solid rgb(0,163,204);
+	
+}
+.logos-dropdown .nav-item .nav-link{
+	color: rgb(0,0,0);
+	font-size: 12px;
+}
+.logos-dropdown .nav-item .nav-link:hover{
+	color: rgb(255,255,255);
+	background-color: rgb(0,163,204);
+
+}
+.min-delete{
+	margin-right: 50px;
+}
+.min-td{
+	min-width: 230px;
+}
+/*for the max height of modal for the list of spots*/
+.max-list-height{
+	max-height: 500px;
+	overflow: auto;
+}
+/*the filter input for the data in admin panel*/
+.filter{
+	width: 30%;
+}
+/*for the photo of a tourist spot*/
+.spot-photo{
+	width: 70%;
+	border-radius: 50%;
+	max-height: 50px;
+}
+/*spot icon*/
+.spot-icon{
+	margin-right: 11px;
+}
+/*maximum size of the td of the tourist spot photo*/
+.max-spot-photo{
+	max-width: 80px;
+}
+/*for the photo of the list of admins*/
+.admin-photo{
+	width: 100%;
+	height: 180px;
+}
+
+.admin-info{
+	border: none;
+	border-bottom: 1px solid rgb(0,163,204);
+	width: 100%;
+	padding: 2%;
+}
+/*hover admin card in the admins page*/
+.admin-card:hover{
+	border: 1px solid rgb(0,163,204);
+	
+}
+
+.admin-card-header{
+	background-color: rgb(0,163,204);
+	color: rgb(255,255,255);
+}
+.card-admin-settings{
+	width: 100%;
+	margin-top: 5%;
+}
+/*button for the change profile of the admin*/
+.change-dp{
+	width: 100%;
+	border: none;
+	background-color: rgb(0,163,204);
+	padding: 1%;
+	color: rgb(255,255,255);
+
+}
+/*button for the edit of the admins information*/
+.edit-info{
+	width: 100%;
+	margin-top: 2%;
+	padding: 1.5%;
+	background-color: rgb(0,163,204);
+	color: rgb(255,255,255);
+	border: none;
+}
+.card-body input::placeholder{
+	color: rgb(0,0,0);
+	opacity: 0.6;
+}
+/*for the cards in the main page of the dashboard*/
+.municipalities-card, .admins-card{
+	background-color:  rgb(0,163,204);
+}
+.establishment-card{
+	background-color: rgb(102, 153, 153);
+
+}
+.tourist-card{
+	background-color: rgb(0, 179, 60);
+}
+.page-name{
+	background-color: rgb(133, 173, 173);
+	margin-top: 2%;
+	color: rgb(255,255,255);
+	letter-spacing: 2px;
+	font-weight: bolder;
+	font-family: Verdana;
+}
+.btn-print{
+	background-color: rgb(0, 179, 60);
+	border: none;
+	width: 100%;
+	padding: 4%;
+	color: rgb(255,255,255);
+	margin-top: 25%;
+	
+
+}
+
+/*for the modal edit in action */
+.ModalView{
+	position: fixed;
+	width: 50%;
+	margin-left: 30%;
+	z-index: 20;
+	display: none;
+}
+/*for the modal header in action */
+.modalViewHeader{
+	background-color: rgb(0, 163, 204);
+	height: auto;
+	color: rgb(255,255,255);
+}
+/*the body of the modal*/
+.modalViewBody{
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(57, 115, 172); 
+	max-height: 500px;
+	overflow: auto;
+	
+}
+.view-photo{
+	max-height: 170px;
+	width: 100%;
+}
+.description{
+	width: 640%;
+}
+.addDesc{
+	width: 100%;
+	margin-top: 1%;
+	border: none;
+	background-color: rgb(0, 163, 204);
+	padding: 1%;
+	color: rgb(255,255,255);
+}
+/* add top destination button */
+.add-to-destination{
+	background-color: rgb(46, 184, 46);
+	border: none;
+	color: rgb(255,255,255);
+	width: 60px;
+}
+/* remove top destination button */
+.remove{
+	background-color: rgb(255,0,0);
+	border: none;
+	color: rgb(255,255,255);
+	width: 70px;
+}
+.top-destination-photo{
+	width: 50%;
+	height: 100px;
+	
+}
+/* for the success of each query in adding and removing top destination spot */
+.strong-success{
+	position: absolute;
+	z-index: 20;
+	margin-left: 35%;
+	background-color: rgba(0,0,0,0.6);
+	text-align: center;
+	margin-top: 3%;
+	color: rgb(255,255,255);
+	width: 20%;
+	letter-spacing: 2px;
+	padding: 1%;
+}
+.top-destinations-list{
+	max-height: 700px;
+	overflow: auto;
+}
