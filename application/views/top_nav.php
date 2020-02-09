@@ -7,7 +7,7 @@
 	</div>
 	<!-- for the links in the right top  of the page -->
 	<div class="col-lg-6"> 
-		<nav class="navbar navbar-expand-md nav">
+		<nav class="navbar navbar-expand-md nav ">
 			<!-- Toggler/collapsibe Button -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 				   <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
 
 			<!-- Navbar links -->
 			<div class="collapse navbar-collapse" id="collapsibleNavbar"  v-if="!search">
-			  <ul class="navbar-nav">
+			  <ul class="navbar-nav" id="nav">
 
 			    <li class="nav-item">
 			       <a class="nav-link" href="<?php echo base_url();?>"  v-b-tooltip.hover title="Home Page"><span class="fa fa-home" ></span> Home</a>
@@ -27,7 +27,7 @@
 			       <a class="nav-link" href="<?php echo base_url();?>index.php/main/touristSpots"  v-b-tooltip.hover title="All tourist spots"><span class="fa fa-plane"></span> Spots</a>
 			    </li>		  
 			    <!-- Dropdown -->
-				<li class="nav-item"  @mouseleave="showCat = false" @mouseover="showCat = true">
+				<li class="nav-item cat-dropdown"  @mouseleave="showCat = false" @mouseover="showCat = true">
 
 				   <a class="nav-link categories" href="#"><span class="fa fa-list"></span> Categories </a>
 				   

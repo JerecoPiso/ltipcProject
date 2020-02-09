@@ -32,6 +32,9 @@
 }
 /* for devices that has 768px to 992px screen*/
 @media only screen and (min-width: 768px) and (max-width: 992px){
+	#nav li a{
+		font-size: 30px;
+	}
 	/*above text of all the tourist spots*/
 	.all-title{
 		border-radius: 10rem;
@@ -168,7 +171,7 @@ footer{
 /*FOR THE LINKS IN THE NAVBAR*/
 li a{
 	color: rgb(255,255,255);
-	font-size: 50%;
+	font-size: 16px;
 	padding: 0.5%;
 }
 li a:hover{
@@ -316,7 +319,7 @@ li a:hover{
 }
 /*row for the list of all tourist spots*/
 .all-spots{
-	max-height: 800px;
+	max-height: 1500px;
     overflow: auto;
 }
 
