@@ -23,7 +23,7 @@
 
   ;?>
 
-  </div><!--class col-lg-2 end-->
+  </div><!--class col-lg-2 end-->git 
 
   <div class="col-lg-10">
     <strong class="strong-success" v-if="success">{{success}}</strong>
