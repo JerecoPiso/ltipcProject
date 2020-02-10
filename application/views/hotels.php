@@ -8,7 +8,7 @@
 	<div class="col-lg-1">
 		
 	</div>
-	<div class="col-lg-10">
+	<div class="col-lg-10 card p-3 mt-4">
     
             <h5 class="mt-2 text-center alert alert-info all-title"><b> <span class="fa fa-building"></span> Hotels / Establishments</b></h5>
      

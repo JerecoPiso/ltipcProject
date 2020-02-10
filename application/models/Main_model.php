@@ -7,7 +7,7 @@
 			$this->load->database();		
 		}
 		
-
+		//select data
 		function select($table,$spot){
 
 			$this->db->where($table.'.category', $spot);
@@ -25,8 +25,8 @@
 
 		}
 
+		//for the query for searching
 		public function searchResult($search){
-
 
 			$this->db->like('spots.name', $search, 'both');
 

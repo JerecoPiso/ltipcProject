@@ -23,12 +23,14 @@
 	  			foreach ($ret as $key => $value) { ?>	
 	  			<div  class="carousel-item <?php if($counter == 0){ 
                          echo 'active';}?>">
-				      <img  src="<?php echo base_url();?>assets/images/<?= $value->photo?>" class="carousel-img" >
+					  <img  src="<?php echo base_url();?>assets/images/<?= $value->photo?>" class="carousel-img" >
+					  
 				      <div class="carousel-caption spot-caption">
 				        <h3><?= $value->name?></h3>
 				        <p></p>
-				      </div>   
-				    </div>
+					  </div>
+					     
+				</div>
 
 
 	  	<?php	$counter++;	}
@@ -47,20 +49,25 @@
 
    <!-- most popular spot destination -->
    <h5 class="text-center top-destination-title">Most Popular Destination</h5>
-   <div class='row top-destination'>
-	   <?php 	foreach ($topDestination as $key => $values) { ?>	
+   <div class="card m-4">
 
-		 <div class="col-lg-4">
-			
-				<div class="photos">
-					<img src="<?php echo base_url();?>assets/images/<?= $values->photo?>" class="top-destination-photo">
-					<div class="middle">
-						<div class="text"><?= $values->name ?></div>
-					</div>
-				</div>
-  
-		   </div> 
+		<div class='row top-destination'>
+			<?php 	foreach ($topDestination as $key => $values) { ?>	
 
-		<?php } ?>	
+				<div class="col-lg-4">
+					
+						<div class="photos">
+							<img src="<?php echo base_url();?>assets/images/<?= $values->photo?>" class="top-destination-photo">
+							<div class="middle">
+								<div class="text"><?= $values->name ?></div>
+							</div>
+						</div>
 		
-   </div>
+				</div> 
+
+				<?php } ?>	
+				
+		</div>
+
+	</div><!-- class card-end-->
+  

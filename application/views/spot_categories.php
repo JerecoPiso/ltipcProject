@@ -17,7 +17,8 @@
 			<img class="view-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + spotInfo.photo">
 			<h4 class="text-center"><b> {{spotInfo.name + " ( "+ spotInfo.municipality + " )"}} </b></h4>
 			
-			<p class="p-desc">{{spotInfo.desc}}</p>
+			<p class="p-desc" v-if="spotInfo.desc != ''">{{spotInfo.desc}}</p>
+			<p class="p-desc text-center" v-else>No description available.</p>
 			  
      </div><!--end class modalBody-->  
   </div><!--end class modal-->
@@ -28,7 +29,7 @@
 	<div class="col-lg-1">
 		
 	</div>
-	<div class="col-lg-10">
+	<div class="col-lg-10 card p-3 mt-4">
 		 <?php if($ret != false){ ?>
 
             <h5 class="mt-2"><b>Category:</b> <?php echo $cat;?></h5>
