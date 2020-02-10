@@ -15,7 +15,8 @@
 			<img class="view-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + spotInfo.photo">
 			<h4 class="text-center"><b> {{spotInfo.name + " ( "+ spotInfo.municipality + " )"}} </b></h4>
 			
-			<p class="p-desc">{{spotInfo.desc}}</p>
+			<p class="p-desc" v-if="spotInfo.desc != ''">{{spotInfo.desc}}</p>
+			<p class="p-desc text-center" v-else>No description available.</p>
 			  
      </div><!--end class modalBody-->  
 </div><!--end class modal-->
