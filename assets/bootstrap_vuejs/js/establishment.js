@@ -7,7 +7,7 @@ var url = "http://localhost/LTIPC/";
 			modalDelete: false,
 			modalEdit: false,
 			message: '',
-			establishmentInfo: {id: '',name: '', location: '', rates: '', contact: ''},
+			establishmentInfo: {id: '',name: '', location: '', rates: '', contact: '', other: ''},
 			hotels: [],
 			photo: '',
 			file: ''
@@ -33,9 +33,10 @@ var url = "http://localhost/LTIPC/";
 	            formData.append('name', establishment.establishmentInfo.name);
 	            formData.append('location', establishment.establishmentInfo.location);
 	            formData.append('rates', establishment.establishmentInfo.rates);
-	            formData.append('contact', establishment.establishmentInfo.contact);
+				formData.append('contact', establishment.establishmentInfo.contact);
+				formData.append('other', establishment.establishmentInfo.other);
 	        
-
+ 
 				axios.post(url+"index.php/uploader/addEstablishment",formData).then(function(response){
 
 					
@@ -67,7 +68,8 @@ var url = "http://localhost/LTIPC/";
 	            formData.append('name', establishment.establishmentInfo.name);
 	            formData.append('location', establishment.establishmentInfo.location);
 	            formData.append('rates', establishment.establishmentInfo.rates);
-	            formData.append('contact', establishment.establishmentInfo.contact);
+				formData.append('contact', establishment.establishmentInfo.contact);
+				formData.append('other', establishment.establishmentInfo.other);
 	            formData.append('id', establishment.establishmentInfo.id);
 	        
 

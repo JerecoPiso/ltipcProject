@@ -48,7 +48,7 @@
 </div><!-- id demo end-->
 
    <!-- most popular spot destination -->
-   <h5 class="text-center top-destination-title">Most Popular Destination</h5>
+   <h5 class="text-center top-destination-title">Top Destination</h5>
    <div class="card m-4">
 
 		<div class='row top-destination'>

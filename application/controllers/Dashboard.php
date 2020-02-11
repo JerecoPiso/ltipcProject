@@ -252,25 +252,26 @@ class Dashboard extends CI_Controller {
 	 		echo $ret;
 
 	 	}
-	 	//inserting new establishment to the database
-	 	public function addEstablishment(){
+	 	// //inserting new establishment to the database
+	 	// public function addEstablishment(){
 
-	 		if($_POST['name'] != "" && $_POST['location'] != "" && $_POST['rates'] != "" && $_POST['contact'] != ""){
+	 	// 	if($_POST['name'] != "" && $_POST['location'] != "" && $_POST['rates'] != "" && $_POST['contact'] != "" && $_POST['other'] != ""){
 
-	 			$data['name'] = $_POST['name'];
-	 			$data['location'] = $_POST['location'];
-	 			$data['rates'] = $_POST['rates'];
-	 			$data['contact'] = $_POST['contact'];
-	 			$ret = $this->dashboard_model->Add($data,'establishment');
+	 	// 		$data['name'] = $_POST['name'];
+	 	// 		$data['location'] = $_POST['location'];
+	 	// 		$data['rates'] = $_POST['rates'];
+		// 		$data['contact'] = $_POST['contact'];
+		// 		$data['other'] = $_POST['other'];
+	 	// 		$ret = $this->dashboard_model->Add($data,'establishment');
 
-	 		}else{
+	 	// 	}else{
 
-	 			$ret = "All fields must be filled up!";
-	 		}
+	 	// 		$ret = "All fields must be filled up!";
+	 	// 	}
 	 		
-	 		echo $ret;
+	 	// 	echo $ret;
 
-	 	}
+	 	// }
 	 	//inserting new muncipality to the database
 	 	public function addMunicipality(){
 

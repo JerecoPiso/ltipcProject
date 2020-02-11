@@ -388,7 +388,7 @@ li a:hover{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	margin: 3%;
-	max-height: 70px;
+	max-height: 100px;
 	
 }
 .p-desc{

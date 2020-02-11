@@ -33,16 +33,20 @@
 						  <div class="descript">
 								<?php if($value->rates != ""){
 
-										echo "<b>Rates:</b> " .$value->rates ."<br>";
+										echo "<b>Rates:</b> Php " .$value->rates ."<br>";
 										echo "<b>Location:</b> " .$value->location ."<br>";
-										echo "<b>Contact:</b> " .$value->contact;
+										echo "<b>Contact:</b> " .$value->contact . "<br>";
+										echo "<b>Others: </b>" . $value->other;
 										
 							    	}else{
 
 										echo "No description available.";
 									} ?>
 							
-							</div>
+						 </div>
+						 
+						
+						   
 							
 	         			 </div>
          			</div><!--clas card end-->

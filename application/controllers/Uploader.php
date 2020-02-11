@@ -21,49 +21,58 @@ class Uploader extends CI_Controller {
 	    //check if the filename is not empty
         if(!empty($_FILES['file']['name'])){
 
-        	//upload path of the file
-            $config['upload_path'] = 'assets/images/';
-            $config['file_name'] = $_FILES['file']['name'];
-            //allowed MIME type of the file
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            
+			if($_POST['name'] != "" && $_POST['location'] != "" && $_POST['rates'] != "" && $_POST['contact'] != "" && $_POST['other'] != ""){
 
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
-            
-            //check if true uploading the file to the path
-            if($this->upload->do_upload('file')){
-                $uploadData = $this->upload->data();
-                $filename = $uploadData['file_name'];
-
-				$file['filename'] = $filename;
-                //get the data from the users input
-				$data['name'] = $_POST['name'];
-				$data['location'] = $_POST['location'];
-				$data['rates'] = $_POST['rates'];
-				$data['contact'] = $_POST['contact'];
-				$data['photo'] = $file['filename'];
-				
-				//call the add function in the model	
-				$query = $this->dashboard_model->Add($data,'establishment');
-				//check if the return of query is not empty
-				if($query != ""){
-					
-					$output['error'] = false;
-					$output['message'] = $query;
-
-				}
-				else{
-					$output['error'] = true;
-					$output['message'] = 'Photo uploaded but not inserted to database';
-				}
-
-            }else{
-
-            	$output['error'] = true;
-				$output['message'] = 'Cannot upload photo';
-				//$output['message'] = $_FILES['file']['name'];
-            }
+				 		//upload path of the file
+						 $config['upload_path'] = 'assets/images/';
+						 $config['file_name'] = $_FILES['file']['name'];
+						 //allowed MIME type of the file
+						 $config['allowed_types'] = 'gif|jpg|png|jpeg';
+						 
+			 
+						 $this->load->library('upload', $config);
+						 $this->upload->initialize($config);
+						 
+						 //check if true uploading the file to the path
+						 if($this->upload->do_upload('file')){
+							 $uploadData = $this->upload->data();
+							 $filename = $uploadData['file_name'];
+			 
+							 $file['filename'] = $filename;
+							 //get the data from the users input
+							 $data['name'] = $_POST['name'];
+							 $data['location'] = $_POST['location'];
+							 $data['rates'] = $_POST['rates'];
+							 $data['contact'] = $_POST['contact'];
+							 $data['other'] = $_POST['other'];
+							 $data['photo'] = $file['filename'];
+							 
+							 //call the add function in the model	
+							 $query = $this->dashboard_model->Add($data,'establishment');
+							 //check if the return of query is not empty
+							 if($query != ""){
+								 
+								 $output['error'] = false;
+								 $output['message'] = $query;
+			 
+							 }
+							 else{
+								 $output['error'] = true;
+								 $output['message'] = 'Photo uploaded but not inserted to database';
+							 }
+			 
+						 }else{
+			 
+							 $output['error'] = true;
+							 $output['message'] = 'Cannot upload photo';
+							 //$output['message'] = $_FILES['file']['name'];
+						 }
+	   
+			}else{
+	   
+				 		$output['message'] = "All fields must be filled up!";
+		 	}
+        	
 
         }else{
 
@@ -81,51 +90,59 @@ class Uploader extends CI_Controller {
 	    //check if the filename is not empty
         if(!empty($_FILES['file']['name'])){
 
-        	//upload path of the file
-            $config['upload_path'] = 'assets/images/';
-            $config['file_name'] = $_FILES['file']['name'];
-            //allwoed MIME type of the file
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            
+			if($_POST['name'] != "" && $_POST['location'] != "" && $_POST['rates'] != "" && $_POST['contact'] != "" && $_POST['other'] != ""){
 
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
-            
-            //check if true uploading the file to the path
-            if($this->upload->do_upload('file')){
-                $uploadData = $this->upload->data();
-                $filename = $uploadData['file_name'];
-
-				$file['filename'] = $filename;
-                //get the data from the users input
-                 //get the data from the users input
-				$data['name'] = $_POST['name'];
-				$data['location'] = $_POST['location'];
-				$data['rates'] = $_POST['rates'];
-				$data['contact'] = $_POST['contact'];
-				$id = $_POST['id'];
-				$data['photo'] = $file['filename'];
+				//upload path of the file
+				$config['upload_path'] = 'assets/images/';
+				$config['file_name'] = $_FILES['file']['name'];
+				//allwoed MIME type of the file
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
 				
-				//call the add function in the model	
-				$query = $this->dashboard_model->EditInfo($data,$id,'establishment');
-				//check if the return of query is not empty
-				if($query != ""){
+	
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+				
+				//check if true uploading the file to the path
+				if($this->upload->do_upload('file')){
+					$uploadData = $this->upload->data();
+					$filename = $uploadData['file_name'];
+	
+					$file['filename'] = $filename;
+					//get the data from the users input
+					 //get the data from the users input
+					$data['name'] = $_POST['name'];
+					$data['location'] = $_POST['location'];
+					$data['rates'] = $_POST['rates'];
+					$data['contact'] = $_POST['contact'];
+					$data['other'] = $_POST['other'];
+					$id = $_POST['id'];
+					$data['photo'] = $file['filename'];
 					
-					$output['error'] = false;
-					$output['message'] = $query;
-
-				}
-				else{
+					//call the add function in the model	
+					$query = $this->dashboard_model->EditInfo($data,$id,'establishment');
+					//check if the return of query is not empty
+					if($query != ""){
+						
+						$output['error'] = false;
+						$output['message'] = $query;
+	
+					}
+					else{
+						$output['error'] = true;
+						$output['message'] = 'Photo uploaded but not inserted to database';
+					}
+	
+				}else{
+	
 					$output['error'] = true;
-					$output['message'] = 'Photo uploaded but not inserted to database';
+					$output['message'] = 'Cannot upload photo';
+					//$output['message'] = $_FILES['file']['name'];
 				}
+			}else{
 
-            }else{
-
-            	$output['error'] = true;
-				$output['message'] = 'Cannot upload photo';
-				//$output['message'] = $_FILES['file']['name'];
-            }
+				$output['message'] = 'All fields must be field up!';
+			}
+        	
 
         }else{
 

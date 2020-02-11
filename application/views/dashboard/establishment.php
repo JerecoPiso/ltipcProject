@@ -40,8 +40,10 @@
        <input type="text" class="form-control" v-model="establishmentInfo.location" placeholder="brgy, municipality">
         <label>Rates</label>
        <input type="text" class="form-control" v-model="establishmentInfo.rates" placeholder="eg.. 1,000 - 5,000">
-        <label>Contact</label>
+       <label>Contact</label>
        <input type="number" class="form-control" v-model="establishmentInfo.contact">
+       <label>Other</label>
+       <textarea class="form-control" v-model="establishmentInfo.other" cols="30" rows="3"></textarea>
 
       <input type="file" class="mt-2" id="file"  ref="filess" v-on:change="FileUpload()" class="form-control-file">
        <button class="add" @click="addEstablishment()">Add Establishment</button>
@@ -88,6 +90,8 @@
 
       <label>Contact</label>
       <input type="number" class="form-control" v-model="establishmentInfo.contact">
+      <label>Other</label>
+       <textarea class="form-control" v-model="establishmentInfo.other" cols="30" rows="3"></textarea>
       <input type="file" class="mt-2" id="file"  ref="file" v-on:change="EditFileUpload()" class="form-control-file">
       <button class="edit mt-2" @click="editEstablishment();modalEdit = false;">Edit</button>
 
@@ -144,6 +148,7 @@
                     establishmentInfo.location = hotel.location;
                     establishmentInfo.rates = hotel.rates;
                     establishmentInfo.contact = hotel.contact;
+                    establishmentInfo.other = hotel.other;                   
                     modalEdit = true;"><span class="fa fa-edit"></span> Edit
                   </button>
                     

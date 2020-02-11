@@ -49,8 +49,8 @@
 	         			 <div>
 	         				<img class="admin-photo" src="<?php echo base_url();?>assets/images/<?php	   	echo $value->photo; ?>">
 	         			 </div>
-	         			 <div class="card-footer">
-	         				  	<?php echo $value->name; ?>
+	         			 <div class="card-footer text-center">
+	         				  	<b><?php echo $value->name; ?></b>
 	         			 </div>
          			</div><!--clas card end-->
          				  	
