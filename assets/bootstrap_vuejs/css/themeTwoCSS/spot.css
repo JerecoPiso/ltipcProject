@@ -1,0 +1,28 @@
+.spots {
+	background-color: white;
+	height: auto;
+}
+
+.kalanggaman {
+	background-color: white;
+	padding-left: 3%;
+	padding-top: 5%;
+}
+
+.kalanggaman span {
+    float: right;
+	max-height: 300px;
+	margin-top: 5px;
+ 
+	text-indent: 50px;
+	width: 60%;
+	word-wrap: break-word;
+}
+
+.kalanggaman img:hover {
+	box-shadow: 2px 2px 10px black;
+}
+
+.kalanggaman img {
+	border: 1px solid gold;
+}

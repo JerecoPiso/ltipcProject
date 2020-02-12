@@ -97,8 +97,6 @@
          <option v-for="category in categories">{{category.name}}</option>
        </select>
 
-       <input type="file" class="mt-2" id="file"  ref="files" v-on:change="handleEditFile()" class="form-control-file">
-
        <button class="edit mt-2" @click="editSpot();modalEdit = false;">Edit</button>
 
     </div><!--end class modalBody-->
@@ -121,7 +119,18 @@
      </div><!--end class modalBody-->
      
 </div><!--end class modal-->
+  <div class="Modal" v-if="editPhoto">
+       <button class="close mr-2 mt-2" @click="editPhoto = false">&times;</button>
+       <div class="modalHeader p-2">
+          <h4 class="ml-2">Change Photo</h4>
+       </div>
+       <div class="modalBody p-3">
+        <label>Photo</label><br>
+        <input type="file" class="mt-2" id="file"  ref="files" v-on:change="handleEditFile()" class="form-control-file">
+        <button class="change-dp mt-2" @click="editSpotPhoto()">Change</button>
 
+       </div><!--end class modalBody-->
+    </div><!--end class modal-->
 
   <div class="col-lg-10">
    <div class="page-name">
@@ -157,7 +166,7 @@
             </thead>
             <tbody id="myTable" >
               <tr v-for="spot in spots">
-                <td class="max-spot-photo"><img class="spot-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + spot.photo"></td>
+                <td class="max-spot-photo"><img class="spot-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + spot.photo"> <button class="change-spot-photo" @click="spotInfo.id = spot.id;editPhoto = true" v-b-tooltip.hover title="Change Photo"> <span class="fa fa-edit edit-photo"></span> </button> </td>
                 <td>{{spot.name}}</td>
                 <td>{{spot.municipality}}</td>
                 <td>{{spot.district}}</td>

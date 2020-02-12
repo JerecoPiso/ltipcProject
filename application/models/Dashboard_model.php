@@ -42,7 +42,15 @@
  			$query = $this->db->get($table);
  			return $query->num_rows();
 
- 		}
+		 }
+		 /*check if what theme is in used*/
+		 public function selectTheme(){
+			$this->db->where("themeused.status", "used");
+			$ret = $this->db->get("themeused");
+
+			return $ret->row_array();
+
+		 }
  		/*setting the admins info to be displayed in the admin panel*/
  		function setAdminInfo($id){
 
@@ -82,7 +90,7 @@
 			return $ret->result();
 		}
 		public function getTopDestination(){
-			$this->db->select('spots.id, spots.name, spots.photo');
+			$this->db->select('spots.id, spots.name, spots.photo, spots.category');
 			$this->db->from('spots');
 			$this->db->join('top_destination', 'spots.id = top_destination.spot_id');
 			$this->db->order_by("top_destination.id");
@@ -151,6 +159,48 @@
 			// }
 			
 		}
+		function useTheme($data){
+			$status['status'] = "unused";
+			if($this->db->update("themeused", $status)){
+				$this->db->where("themeused.id", $data['id']);
+				$stat['status'] = "used";
+				if($this->db->update("themeused", $stat)){
+
+					return "Changed successfully.";
+
+				}else{
+
+					return "Cannot changed theme!";
+					
+				}
+
+			}else{
+
+				return "Cannot changed theme!";
+			}
+			
+		}
+		function unuseTheme($data){
+			$status['status'] = "used";
+			if($this->db->update("themeused", $status)){
+				$this->db->where("themeused.id", $data['id']);
+				$stat['status'] = "unused";
+				if($this->db->update("themeused", $stat)){
+
+					return "Changed successfully.";
+
+				}else{
+
+					return "Cannot changed theme!";
+					
+				}
+
+			}else{
+
+				return "Cannot changed theme!";
+			}
+			
+		}
 		/*function for deleting a data in database*/
 		public function Delete($id,$table){
 
@@ -206,6 +256,21 @@
 
 			}		
 		}
+		/*function for edting datas in table*/
+		public function EditSpotEstablishmentPhoto($data,$id,$table){
+		
+			  $this->db->where($table.'.id', $id);
+			  if($this->db->update($table, $data)){
+
+				  return "Updated succesfully";
+
+			  }else{
+
+				  return "Error";
+			  }
+
+		
+	  }
 		/*function for edting the desription of the tourist spot*/
 		public function EditDesc($data,$id,$table){
 		

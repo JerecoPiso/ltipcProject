@@ -33,10 +33,10 @@
 						  <div class="descript">
 								<?php if($value->rates != ""){
 
-										echo "<b>Rates:</b> Php " .$value->rates ."<br>";
-										echo "<b>Location:</b> " .$value->location ."<br>";
-										echo "<b>Contact:</b> " .$value->contact . "<br>";
-										echo "<b>Others: </b>" . $value->other;
+										echo "<b>Rates:</b>  Php " .$value->rates ."<br>";
+										echo "<b>Location:</b>  " .$value->location ."<br>";
+										echo "<b>Contact:</b>  " .$value->contact . "<br>";
+										echo "<b>Other Details: </b> <br>" . $value->other;
 										
 							    	}else{
 

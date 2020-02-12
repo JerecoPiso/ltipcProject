@@ -78,9 +78,23 @@
 			modal: false,
 			spotInfo: {name: '', photo: '', desc: '', municipality: ''}
 
+		},
+		methods: {
+			
+			trial: function(id){
+
+				 var desc =  $('#text-desc'+id).text();
+				
+				 spots.spotInfo.desc = desc;
+				 spots.modal = true;
+				
+				
+			}
+
 		}
 
 	});
+
 </script>
 </body>
 </html>

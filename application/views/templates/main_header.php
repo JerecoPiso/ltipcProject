@@ -5,7 +5,7 @@
 	<!-- CSS LINKS -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bootstrap_vuejs/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bootstrap_vuejs/css/bootstrap_vue.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bootstrap_vuejs/css/main_pagess.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bootstrap_vuejs/css/main_pagesssssss.css">
 	<link href="<?php echo base_url();?>assets/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<!-- JAVASCRIPT LINKS -->
 	<script src="<?php echo base_url();?>assets/bootstrap_vuejs/js/jquery.js"></script>

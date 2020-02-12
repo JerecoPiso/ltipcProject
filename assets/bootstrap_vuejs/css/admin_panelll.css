@@ -339,3 +339,15 @@
 	max-height: 700px;
 	overflow: auto;
 }
+.change-spot-photo{
+	border: none;
+	max-width: 40px;
+	min-width: 40px;
+	max-height: 30px;
+}
+.edit-photo{
+	font-size: 15px;
+}
+.location-td{
+	max-width: 200px;
+}

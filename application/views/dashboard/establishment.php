@@ -92,11 +92,26 @@
       <input type="number" class="form-control" v-model="establishmentInfo.contact">
       <label>Other</label>
        <textarea class="form-control" v-model="establishmentInfo.other" cols="30" rows="3"></textarea>
-      <input type="file" class="mt-2" id="file"  ref="file" v-on:change="EditFileUpload()" class="form-control-file">
+    
       <button class="edit mt-2" @click="editEstablishment();modalEdit = false;">Edit</button>
 
      </div><!--end clas modalBody-->
   </div><!--end class modal-->
+
+  <div class="Modal" v-if="editPhoto">
+       <button class="close mr-2 mt-2" @click="editPhoto = false">&times;</button>
+       <div class="modalHeader p-2">
+          <h4 class="ml-2">Change Photo</h4>
+       </div>
+       <div class="modalBody p-3">
+        <label>Photo</label><br>
+        <input type="file" class="mt-2" id="file"  ref="file" v-on:change="EditFileUpload()" class="form-control-file">
+        <button class="change-dp mt-2" @click="editEstablishmentPhoto()">Change</button>
+
+       </div><!--end class modalBody-->
+    </div><!--end class modal-->
+
+
   <div class="col-lg-10">
     <div class="page-name">
         <h4 class="p-2">Establishments |<span class="fa fa-building ml-2"></span>  |</h4>
@@ -131,9 +146,9 @@
             </thead>
             <tbody id="myTable" >
               <tr v-for="hotel in hotels">
-                <td class="max-spot-photo"><img class="spot-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + hotel.photo"></td>
+                <td class="max-spot-photo"><img class="spot-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + hotel.photo">  <button class="change-spot-photo" @click="establishmentInfo.id = hotel.id;editPhoto = true" v-b-tooltip.hover title="Change Photo"> <span class="fa fa-edit edit-photo"></span> </button> </td>
                 <td>{{hotel.name}}</td>
-                <td>{{hotel.location}}</td>
+                <td class="location-td">{{hotel.location}}</td>
                 <td>{{hotel.rates}}</td>
                 <td>{{hotel.contact}}</td>
                 <td class="min-td">

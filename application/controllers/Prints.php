@@ -15,7 +15,7 @@ class Prints extends CI_Controller {
 	 	function printSpot(){
 
 
-				$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
+				$pdf = new Pdf('L', 'mm', 'A4-L', true, 'UTF-8', false);
 
 
 				$pdf->AddPage();
@@ -47,11 +47,17 @@ class Prints extends CI_Controller {
 						if($checker > 0){
 
 							$pdf->Ln(8);
-							/*$pdf->Cell(190,8,$values->name,1);*/
-							$html = '<h3 style="font-size: 15px;border: 1px solid black;"> '.$values->name.'</h3>';
-							$pdf->writeHTML($html, true, 0, true, true);
-							$pdf->Ln(-5);
-
+						
+							//  $html = '<h3 style="font-size: 15px;border: 1px solid black;"> '.$values->name.'</h3>';
+							//  $pdf->writeHTML($html, true, 0, true, true);
+							 $pdf->Cell(190,8,$values->name,1);
+							$pdf->Ln(8);
+							
+						    // $pdf->Cell(10,8,"df",1);
+							// $pdf->Cell(40,8,$values->name,1);
+							// $pdf->Cell(45,8,$values->name,1);
+							// $pdf->Cell(45,8,$values->name,1);
+							// $pdf->Cell(50,8,$values->name,1);
 						}
 						
 					
@@ -59,14 +65,20 @@ class Prints extends CI_Controller {
 
 					if($spots != ""){
 						$ctr = -10;
+						
 						foreach ($spots as $key => $spot) {
 								 	
-					
-						$html = '<p style="font-size:14px;border: 1px solid black;
-							  "> '.($key + 1).".  " . $spot->name." ( <i>" .$spot->category."</i> )".'</p>';
+					      
+						// $html = '<p style="font-size:14px;border: 1px solid black;
+						// 	  "> '.($key + 1).".  " . $spot->name." ( <i>" .$spot->category."</i> )".'</p>';
 
-						$pdf->writeHTML($html, true, 0, true, true);
-						$pdf->Ln(-5);
+						// $pdf->writeHTML($html, true, 0, true, true);
+						  
+						     $pdf->Cell(95,8,$spot->name,1);
+							 $pdf->Cell(45,8,$spot->category,1);
+							
+							 $pdf->Cell(50,8,$values->name,1);
+						     $pdf->Ln(8);
 						
 				
 		

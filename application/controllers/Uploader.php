@@ -90,7 +90,7 @@ class Uploader extends CI_Controller {
 	    //check if the filename is not empty
         if(!empty($_FILES['file']['name'])){
 
-			if($_POST['name'] != "" && $_POST['location'] != "" && $_POST['rates'] != "" && $_POST['contact'] != "" && $_POST['other'] != ""){
+		
 
 				//upload path of the file
 				$config['upload_path'] = 'assets/images/';
@@ -108,18 +108,12 @@ class Uploader extends CI_Controller {
 					$filename = $uploadData['file_name'];
 	
 					$file['filename'] = $filename;
-					//get the data from the users input
-					 //get the data from the users input
-					$data['name'] = $_POST['name'];
-					$data['location'] = $_POST['location'];
-					$data['rates'] = $_POST['rates'];
-					$data['contact'] = $_POST['contact'];
-					$data['other'] = $_POST['other'];
+			
 					$id = $_POST['id'];
 					$data['photo'] = $file['filename'];
 					
 					//call the add function in the model	
-					$query = $this->dashboard_model->EditInfo($data,$id,'establishment');
+					$query = $this->dashboard_model->EditSpotEstablishmentPhoto($data,$id,'establishment');
 					//check if the return of query is not empty
 					if($query != ""){
 						
@@ -138,10 +132,7 @@ class Uploader extends CI_Controller {
 					$output['message'] = 'Cannot upload photo';
 					//$output['message'] = $_FILES['file']['name'];
 				}
-			}else{
-
-				$output['message'] = 'All fields must be field up!';
-			}
+		
         	
 
         }else{
@@ -177,19 +168,15 @@ class Uploader extends CI_Controller {
    
 				   $file['filename'] = $filename;
    
-				   $data['name'] = $_POST['name'];
-				   $data['municipality'] = $_POST['municipality'];
-				   $data['district'] = $_POST['district'];
-				   $data['category'] = $_POST['category'];
 				   $data['photo'] = $file['filename'];
 				   $id = $_POST['id'];
    
 				   //call the function for editing
-				   $query = $this->dashboard_model->Edit($data,$id,'spots');
+				   $query = $this->dashboard_model->EditSpotEstablishmentPhoto($data,$id,'spots');
 				   if($query != ""){
 					   
 					   $output['error'] = false;
-					   $output['message'] = 'Spot changed successfully';
+					   $output['message'] = 'Spot photo changed successfully';
    
 				   }
 				   else{

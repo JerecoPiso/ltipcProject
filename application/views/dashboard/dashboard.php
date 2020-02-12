@@ -122,6 +122,24 @@
 
         
       </div><!--class row end-->
+      <div class="row">
+        <div class="col-lg-4">
+            <h6 class="alert alert-info text-center mt-4">Select Theme to Used</h6>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="themes in theme">{{themes.theme}}
+                  <button class="pull-right btn-edit" v-if="themes.status == 'unused'" @click="themeInfo.id = themes.id;usedTheme()">Used</button>
+                  <button class="pull-right btn-delete" v-else  @click="themeInfo.id = themes.id;unusedTheme()">Unused</button>
+               </li>
+             
+           </ul>
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+        <div class="col-lg-4">
+
+        </div>
+      </div>
 
 	   
   </div><!--class col-lg-10 end-->

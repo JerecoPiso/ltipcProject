@@ -384,18 +384,28 @@ li a:hover{
 	
 }
 .descript{
-	white-space: nowrap; 
+	word-wrap: break-all;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	margin: 3%;
-	max-height: 100px;
+	min-height: 200px;
+	max-height: 200px;
+	overflow: auto;
 	
+}
+.descript::-webkit-scrollbar {
+	display: none;
+}
+.all-spots::-webkit-scrollbar {
+	display: none;
 }
 .p-desc{
 	word-wrap: break-word;
 	max-width: 100%;
 	border: 1px solid rgb(0, 163, 204);
 	padding: 1%;
+	max-height: 180px;
+	overflow: auto;
 }
 .view-photo{
 	max-height: 170px;
@@ -481,4 +491,11 @@ li a:hover{
 	padding: 16px 32px;
 	width: auto;
   }
- 
+ body::-webkit-scrollbar {
+	display: none;
+ }
+ /* foods and delicacies under map*/
+ .food-delicacies{
+	 margin-left: 5%;
+	 font-size: 160%;
+ }

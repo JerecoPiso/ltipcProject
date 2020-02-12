@@ -16,7 +16,8 @@ var touristSpot = new Vue({
 			spots: [],
 			keyword: '',
 			file: '',
-			editFile: ''
+			editFile: '',
+			editPhoto: false
 		
 		},
 		
@@ -109,17 +110,32 @@ var touristSpot = new Vue({
 				 touristSpot.spotInfo.municipality = total[0];
 				 touristSpot.spotInfo.district = total[total.length - 1].slice(0,-1);
 			
-				let formData = new FormData();
-	            formData.append('file', this.editfile);
+				 let formData = new FormData();
+	            // formData.append('file', this.editfile);
 	            formData.append('name', touristSpot.spotInfo.name);
 	            formData.append('municipality', touristSpot.spotInfo.municipality);
 	            formData.append('district', touristSpot.spotInfo.district);
 	            formData.append('category', touristSpot.spotInfo.category);
 	        	formData.append('id', touristSpot.spotInfo.id);
 
+				axios.post(url+"index.php/dashboard/editSpot",formData).then(function(response){
+
+					touristSpot.message = response.data;
+					touristSpot.clear();
+					touristSpot.getSpot();
+				});
+
+			},
+			editSpotPhoto: function(){
+				 let formData = new FormData();
+	            formData.append('file', this.editfile);
+	    
+	        	formData.append('id', touristSpot.spotInfo.id);
+
 				axios.post(url+"index.php/uploader/editSpots",formData).then(function(response){
 
 					touristSpot.message = response.data.message;
+					
 					touristSpot.clear();
 					touristSpot.getSpot();
 				});

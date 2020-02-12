@@ -10,7 +10,8 @@ var url = "http://localhost/LTIPC/";
 			establishmentInfo: {id: '',name: '', location: '', rates: '', contact: '', other: ''},
 			hotels: [],
 			photo: '',
-			file: ''
+			file: '',
+			editPhoto: false
 		},
 		mounted: function(){
 
@@ -64,7 +65,6 @@ var url = "http://localhost/LTIPC/";
 				
 
 				let formData = new FormData();
-	            formData.append('file', this.file);
 	            formData.append('name', establishment.establishmentInfo.name);
 	            formData.append('location', establishment.establishmentInfo.location);
 	            formData.append('rates', establishment.establishmentInfo.rates);
@@ -73,6 +73,23 @@ var url = "http://localhost/LTIPC/";
 	            formData.append('id', establishment.establishmentInfo.id);
 	        
 
+				axios.post(url+"index.php/dashboard/editEstablishment",formData).then(function(response){
+
+					
+					establishment.message = response.data.message;
+					establishment.getHotels();
+
+				});
+
+
+			},
+			editEstablishmentPhoto: function(){
+				
+
+				let formData = new FormData();
+	            formData.append('file', this.file);
+	            formData.append('id', establishment.establishmentInfo.id);
+	        
 				axios.post(url+"index.php/uploader/editEstablishment",formData).then(function(response){
 
 					

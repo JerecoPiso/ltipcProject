@@ -14,10 +14,22 @@ class Main extends CI_Controller {
 	 	}
 	 	/*index page of the web app*/
 	 	function index(){
+			$ret = $this->dashboard_model->selectTheme();
+			if($ret['theme'] == "Theme1"){
+				
+				$this->load->view('templates/main_header');
+				$this->load->view('index');
+			    $this->load->view('templates/main_footer');
+				
+			}else{
 
-	 		$this->load->view('templates/main_header');
-	 		$this->load->view('index');
-	 		$this->load->view('templates/main_footer');
+				$this->load->view('templates/themeTwoHeader');
+	 		    $this->load->view('themeTwo/index');
+			    $this->load->view('templates/themeTwoFooter');
+			}
+	 		
+			
+			 
 	 	}
 		//PAGE FOR THE CATEGORIES OF THE SPOT
 	 	function spotCategories(){

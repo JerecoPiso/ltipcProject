@@ -8,7 +8,9 @@ var url = "http://localhost/LTIPC/";
 			modalEstablishment: false,
 			modalMunicipality: false,
 			municipalities: [],
-			hotels: []
+			hotels: [],
+			theme: [],
+			themeInfo: {id:''}
 		},
 		mounted: function(){
 
@@ -16,6 +18,7 @@ var url = "http://localhost/LTIPC/";
 			this.getSpot();
 			this.getHotels();
 			this.getMunicipalities();
+			this.getTheme();
 			
 		},
 		methods: {
@@ -65,6 +68,41 @@ var url = "http://localhost/LTIPC/";
 			    });
 
 			},
+			getTheme: function(){
+
+				axios.post(url + "index.php/dashboard/getTheme").then(function(response){
+					
+					dashboardHomePage.theme = response.data;
+
+			    });
+
+			},
+			usedTheme: function(){
+
+				var info = district.toFormData(dashboardHomePage.themeInfo);
+			
+				axios.post(url + "index.php/dashboard/usedTheme", info).then(function(response){
+					
+					dashboardHomePage.getTheme();
+					alert(response.data)
+
+
+			    });
+
+
+			},
+			unusedTheme: function(){
+				var info = district.toFormData(dashboardHomePage.themeInfo);
+			
+				axios.post(url + "index.php/dashboard/unusedTheme", info).then(function(response){
+					
+					dashboardHomePage.getTheme();
+					alert(response.data)
+
+
+			    });
+
+			}
 
 
 		}

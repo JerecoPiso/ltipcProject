@@ -16,10 +16,10 @@ class Dashboard extends CI_Controller {
 	 	
 	 	//this is the login and signup page of the admin
 	 	public function index(){
-
-	 		$this->load->view('templates/header');
-	 		$this->load->view('dashboard/login');
-	 		$this->load->view('templates/footer');
+			
+				$this->load->view('templates/header');
+				$this->load->view('dashboard/login');
+				$this->load->view('templates/footer');
 
 	 	}
 	 	//this is the page for recovering account
@@ -252,7 +252,7 @@ class Dashboard extends CI_Controller {
 	 		echo $ret;
 
 	 	}
-	 	// //inserting new establishment to the database
+	 
 	 	// public function addEstablishment(){
 
 	 	// 	if($_POST['name'] != "" && $_POST['location'] != "" && $_POST['rates'] != "" && $_POST['contact'] != "" && $_POST['other'] != ""){
@@ -407,7 +407,8 @@ class Dashboard extends CI_Controller {
 	 		$data['name'] = $_POST['name'];
 	 		$data['location'] = $_POST['location'];
 	 		$data['rates'] = $_POST['rates'];
-	 		$data['contact'] = $_POST['contact'];
+			 $data['contact'] = $_POST['contact'];
+			 $data['other'] = $_POST['other'];
 	 		$id = $_POST['id'];
 	 		$ret = $this->dashboard_model->Edit($data,$id,'establishment');
 
@@ -423,7 +424,19 @@ class Dashboard extends CI_Controller {
 
 	 		echo $ret;
 
-	 	}
+		 }
+		 public function editSpot(){
+			$data['name'] = $_POST['name'];
+			$data['municipality'] = $_POST['municipality'];
+			$data['district'] = $_POST['district'];
+			$data['category'] = $_POST['category'];
+		    
+			$id = $_POST['id'];
+			$ret = $this->dashboard_model->Edit($data,$id,'spots');
+
+			echo $ret;
+		 }
+		
 	 	//controller for the creating the new password of the user in  for recovering its account
 	 	public function changePass(){
 	 		$data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -453,6 +466,13 @@ class Dashboard extends CI_Controller {
 
 	 		echo json_encode($ret);
 		 }
+		 //getting the districts to be displayed in view
+	 	public function getTheme(){
+	 		
+			$ret = $this->dashboard_model->get('themeused');
+
+			echo json_encode($ret);
+		}
 		 //getting the districts to be displayed in view
 	 	public function getDestination(){
 	 		
@@ -538,7 +558,18 @@ class Dashboard extends CI_Controller {
 
 	   echo json_encode($ret);
 	}
+		public function usedTheme(){
+			$data['id'] = $_POST['id'];
+			$ret  = $this->dashboard_model->useTheme($data);
 
+			echo $ret;
+		}
+		public function unusedTheme(){
+			$data['id'] = $_POST['id'];
+			$ret  = $this->dashboard_model->unuseTheme($data);
+
+			echo $ret;
+		}
 
 		//LOGOUT
 	 	function logout(){
