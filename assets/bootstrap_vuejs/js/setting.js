@@ -147,7 +147,7 @@
 
 				var info = district.toFormData(userSettings.user);
 	        	
-	        	if (userSettings.user.password != "") {
+	        	if (userSettings.user.password == "") {
 	        		  userSettings.passErr = "Password must not  empty!";
 	        	}else if(userSettings.user.password != userSettings.user.pass2){
 	        		 userSettings.pass2Err = "Password didn't matched!";

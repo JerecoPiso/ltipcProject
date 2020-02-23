@@ -11,7 +11,9 @@ var url = "http://localhost/LTIPC/";
 			hotels: [],
 			photo: '',
 			file: '',
-			editPhoto: false
+			editPhoto: false,
+			addPhoto: false,
+			fileAdd: ''
 		},
 		mounted: function(){
 
@@ -25,7 +27,9 @@ var url = "http://localhost/LTIPC/";
 			EditFileUpload(){
 		        this.file = this.$refs.file.files[0];
 			},
-			     
+		    addEstablishmentPhoto(){
+				this.fileAdd = this.$refs.fileadd.files[0];
+			},
 			 addEstablishment: function(){
 
 				
@@ -91,6 +95,23 @@ var url = "http://localhost/LTIPC/";
 	            formData.append('id', establishment.establishmentInfo.id);
 	        
 				axios.post(url+"index.php/uploader/editEstablishment",formData).then(function(response){
+
+					
+					establishment.message = response.data.message;
+					establishment.getHotels();
+
+				});
+
+
+			},
+			addEstabPhoto: function(){
+				
+
+				let formData = new FormData();
+	            formData.append('file', this.fileAdd);
+	            formData.append('id', establishment.establishmentInfo.id);
+
+				axios.post(url+"index.php/uploader/addEstablishmentPhoto",formData).then(function(response){
 
 					
 					establishment.message = response.data.message;

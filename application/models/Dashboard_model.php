@@ -138,6 +138,19 @@
 			}
 			
 		}
+		/*function for inserting datas to database*/
+		function AddEstabPhoto($data,$table){
+
+		
+				if($this->db->insert($table, $data)){
+
+					return "Added succesfully";
+
+				}else{
+
+					return "Error";
+				}
+		}
 		/*function for adding most popular destination*/
 		function popularDestination($data,$table){
 

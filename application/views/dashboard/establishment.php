@@ -111,6 +111,19 @@
        </div><!--end class modalBody-->
     </div><!--end class modal-->
 
+    <div class="Modal" v-if="addPhoto">
+       <button class="close mr-2 mt-2" @click="addPhoto = false">&times;</button>
+       <div class="modalHeader p-2">
+          <h4 class="ml-2">Change Photo</h4>
+       </div>
+       <div class="modalBody p-3">
+        <label>Photo</label><br>
+        <input type="file" class="mt-2" id="file"  ref="fileadd" v-on:change="addEstablishmentPhoto()" class="form-control-file">
+        <button class="change-dp mt-2" @click="addEstabPhoto()">Change</button>
+
+       </div><!--end class modalBody-->
+    </div><!--end class modal-->
+
 
   <div class="col-lg-10">
     <div class="page-name">
@@ -146,7 +159,9 @@
             </thead>
             <tbody id="myTable" >
               <tr v-for="hotel in hotels">
-                <td class="max-spot-photo"><img class="spot-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + hotel.photo">  <button class="change-spot-photo" @click="establishmentInfo.id = hotel.id;editPhoto = true" v-b-tooltip.hover title="Change Photo"> <span class="fa fa-edit edit-photo"></span> </button> </td>
+                <td class="max-spot-photo"><img class="spot-photo" v-bind:src="'<?php echo base_url();?>assets/images/' + hotel.photo">  <button class="change-spot-photo" @click="establishmentInfo.id = hotel.id;editPhoto = true" v-b-tooltip.hover title="Change Photo"> <span class="fa fa-edit edit-photo"></span> </button> 
+                <button @click="establishmentInfo.id = hotel.id;addPhoto = true" class="change-spot-photo"  v-b-tooltip.hover title="Add Photo"> <span class="fa fa-plus"></span> </button>
+                </td>
                 <td>{{hotel.name}}</td>
                 <td class="location-td">{{hotel.location}}</td>
                 <td>{{hotel.rates}}</td>

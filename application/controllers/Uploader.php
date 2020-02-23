@@ -13,7 +13,126 @@ class Uploader extends CI_Controller {
 				//$this->load->library('Pdf');
 				//$this->load->library('unit_test');
 
-	 	}
+		 }
+		 
+			
+
+
+				//controller for the editing the  profile
+				public function editDp(){
+	 		
+					$output = array('error' => false);
+					//check if the filename is not empty
+					if(!empty($_FILES['file']['name'])){
+			
+						//upload path of the file
+						$config['upload_path'] = 'assets/images/';
+						$config['file_name'] = $_FILES['file']['name'];
+						//allwoed MIME type of the file
+						$config['allowed_types'] = 'gif|jpg|png|jpeg';
+						
+			
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						
+						//check if true uploading the file to the path
+						if($this->upload->do_upload('file')){
+							$uploadData = $this->upload->data();
+							$filename = $uploadData['file_name'];
+			
+							$file['filename'] = $filename;
+							//get the data from the users input
+							$id = $_POST['id'];
+							$data['photo'] = $file['filename'];
+							
+							//call the add function in the model	
+							$query = $this->dashboard_model->EditInfo($data,$id,'admin');
+							//check if the return of query is not empty
+							if($query != ""){
+								
+								$output['error'] = false;
+								$output['message'] = $query;
+			
+							}
+							else{
+								$output['error'] = true;
+								$output['message'] = 'Photo uploaded but not inserted to database';
+							}
+			
+						}else{
+			
+							$output['error'] = true;
+							$output['message'] = 'Cannot upload photo';
+							//$output['message'] = $_FILES['file']['name'];
+						}
+			
+					}else{
+			
+						$output['error'] = true;
+						$output['message'] = 'Cannot upload empty photo';
+					}
+			
+					echo json_encode($output);
+					 }
+		//signup admin
+		public function addEstablishmentPhoto(){
+
+			$output = array('error' => false);
+			//check if the filename is not empty
+			if(!empty($_FILES['file']['name'])){
+	
+				//upload path of the file
+				$config['upload_path'] = 'assets/images/';
+				$config['file_name'] = $_FILES['file']['name'];
+				//allwoed MIME type of the file
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				
+	
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+				
+				//check if true uploading the file to the path
+				if($this->upload->do_upload('file')){
+					$uploadData = $this->upload->data();
+					$filename = $uploadData['file_name'];
+	
+					$file['filename'] = $filename;
+				
+					
+					
+					$data['photo'] = $file['filename'];		
+					$data['establishment_id'] = $_POST['id'];
+					
+					//call the add function in the model	
+					$query = $this->dashboard_model->AddEstabPhoto($data,'establishment_photo');
+					//check if the return of query is not empty
+					if($query != ""){
+						
+						$output['error'] = false;
+						$output['message'] = $query;
+	
+					}
+					else{
+						$output['error'] = true;
+						$output['message'] = 'Photo uploaded but not inserted to database';
+					}
+	
+				}else{
+	
+					$output['error'] = true;
+					$output['message'] = 'Cannot upload photo';
+					//$output['message'] = $_FILES['file']['name'];
+				}
+	
+			}else{
+	
+				$output['error'] = true;
+				$output['message'] = 'Cannot upload empty photo';
+			}
+	
+			echo json_encode($output);
+	
+			 }
 	 	//inserting new to spot to the database
 	 	public function addEstablishment(){
 
@@ -199,62 +318,7 @@ class Uploader extends CI_Controller {
 			}
 
 
-				//controller for the editing the  profile
-				public function editDp(){
-	 		
-					$output = array('error' => false);
-					//check if the filename is not empty
-					if(!empty($_FILES['file']['name'])){
-			
-						//upload path of the file
-						$config['upload_path'] = 'assets/images/';
-						$config['file_name'] = $_FILES['file']['name'];
-						//allwoed MIME type of the file
-						$config['allowed_types'] = 'gif|jpg|png|jpeg';
-						
-			
-						$this->load->library('upload', $config);
-						$this->upload->initialize($config);
-						
-						//check if true uploading the file to the path
-						if($this->upload->do_upload('file')){
-							$uploadData = $this->upload->data();
-							$filename = $uploadData['file_name'];
-			
-							$file['filename'] = $filename;
-							//get the data from the users input
-							$id = $_POST['id'];
-							$data['photo'] = $file['filename'];
-							
-							//call the add function in the model	
-							$query = $this->dashboard_model->EditInfo($data,$id,'admin');
-							//check if the return of query is not empty
-							if($query != ""){
-								
-								$output['error'] = false;
-								$output['message'] = $query;
-			
-							}
-							else{
-								$output['error'] = true;
-								$output['message'] = 'Photo uploaded but not inserted to database';
-							}
-			
-						}else{
-			
-							$output['error'] = true;
-							$output['message'] = 'Cannot upload photo';
-							//$output['message'] = $_FILES['file']['name'];
-						}
-			
-					}else{
-			
-						$output['error'] = true;
-						$output['message'] = 'Cannot upload empty photo';
-					}
-			
-					echo json_encode($output);
-					 }
+				
 		//signup admin
 		public function signup(){
 
@@ -314,6 +378,7 @@ class Uploader extends CI_Controller {
 			echo json_encode($output);
 	
 			 }
+			 
 	
 			//inserting new to spot to the database
 		public function addSpot(){
