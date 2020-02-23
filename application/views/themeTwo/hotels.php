@@ -22,7 +22,7 @@
 			
 				<img src="<?php echo base_url();?>assets/images/<?= $value->photo?>"  height="250" width="400">
 			</a>
-			<h3>&#x20B1;<?= $value->rates?></h3>
+			<h3>&#8369;<?= $value->rates?></h3>
 			<!-- <div class="stars">
 				<h4>4.4
 				<span class="fa fa-star checked"></span>
@@ -35,7 +35,7 @@
 			<div class="location">
 
 				<p><span class="fa fa-map-marker"></span> <b><?= $value->location?></b></p>
-				<h6>Situated in Tacloban, 5 km from MacArthur Landing Memorial National Park, Summit Hotel Tacloban features accommodation with a restaurant, free private parking and an outdoor swimming pool.
+				<h6 style=""><?= $value->other ?>
 				</h6>
 			</div>
 		</div>

@@ -27,7 +27,7 @@
 .summit h3 {
 	float: right;
 	height: auto;
-	margin-right: -17%;
+	margin-right: -9.5%;
 	width: 50%;
 }
 
@@ -46,7 +46,8 @@
 }
 
 .location p {
-	margin-left: 33%; margin-top: -65px;
+	margin-left: 26%;
+	 margin-top: -65px;
 }
 
 .fa {
@@ -62,15 +63,20 @@
 	height: auto;
 	margin-right: 11%;
 	margin-top: -15%;
-	width: 30%;
+	width: 40%;
 	word-wrap: break-word;
 }
 
 .location h6 {
-	float: right;
+	
 	font-weight: normal;
 	margin-left: 23%;
 	margin-top: -10px;
 	padding-left: 10px;
 	padding-right: 10px;
+	max-height: 180px;overflow: auto;width: 300px;
+	font-size: 15px;
+}
+.location h6::-webkit-scrollbar{
+	display: none
 }

@@ -38,7 +38,7 @@
 	                        </li>
 	                       
 	                        <li>
-	                            <a href=""> <span class="fa fa-camera"></span> Gallery</a>
+	                            <a href="<?php echo base_url();?>index.php/Secondtheme/galleries"> <span class="fa fa-camera"></span> Gallery</a>
 	                        </li>
 	                        
 	                    </ul>

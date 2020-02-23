@@ -25,7 +25,7 @@ var url = "http://localhost/LTIPC/";
 
 			print: function(){
 
-				window.location.href = url+"index.php/prints/printSpot"
+				window.location.href = url+"index.php/prints/windowsPrint"
 
 			},
 			count: function(){

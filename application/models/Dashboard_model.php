@@ -81,14 +81,20 @@
 
 			return $ret->result();
 		}
-		/*getting the spots to print in the pdf*/
-		function getSpotToPrint($table,$name){
-			$this->db->where($table.'.municipality', $name);
-			$this->db->group_by($table.'.category');
-			$ret = $this->db->get($table);
-
+		function getSpotsToPrint($table){
+			$this->db->from($table);
+			$this->db->order_by($table.".municipality");
+			$ret = $this->db->get();
 			return $ret->result();
 		}
+		/*getting the spots to print in the pdf*/
+		// function getSpotToPrint($table,$name){
+		// 	$this->db->where($table.'.municipality', $name);
+		// 	$this->db->group_by($table.'.category');
+		// 	$ret = $this->db->get($table);
+
+		// 	return $ret->result();
+		// }
 		public function getTopDestination(){
 			$this->db->select('spots.id, spots.name, spots.photo, spots.category');
 			$this->db->from('spots');

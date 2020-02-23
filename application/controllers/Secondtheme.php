@@ -20,7 +20,13 @@ class Secondtheme extends CI_Controller {
 		 function spots(){
 			$this->load->view('templates/themeTwoHeader');
 			$this->load->view('themeTwo/spots');
-		   $this->load->view('templates/themeTwoFooter');
+		    $this->load->view('templates/themeTwoFooter');
+		 }
+		 function galleries(){
+			$this->load->view('templates/themeTwoHeader');
+			$this->load->view('themeTwo/galleries');
+		    $this->load->view('templates/themeTwoFooter');
+
 		 }
 	
 
