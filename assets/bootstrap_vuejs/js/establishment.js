@@ -44,7 +44,6 @@ var url = "http://localhost/LTIPC/";
  
 				axios.post(url+"index.php/uploader/addEstablishment",formData).then(function(response){
 
-					
 					establishment.message = response.data.message;
 					establishment.getHotels();
 					establishment.clear();
@@ -110,7 +109,7 @@ var url = "http://localhost/LTIPC/";
 				let formData = new FormData();
 	            formData.append('file', this.fileAdd);
 	            formData.append('id', establishment.establishmentInfo.id);
-
+				
 				axios.post(url+"index.php/uploader/addEstablishmentPhoto",formData).then(function(response){
 
 					

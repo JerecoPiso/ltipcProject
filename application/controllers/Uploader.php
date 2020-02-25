@@ -15,65 +15,62 @@ class Uploader extends CI_Controller {
 
 		 }
 		 
-			
-
-
-				//controller for the editing the  profile
-				public function editDp(){
+		//controller for the editing the  profile
+		public function editDp(){
 	 		
-					$output = array('error' => false);
-					//check if the filename is not empty
-					if(!empty($_FILES['file']['name'])){
+			$output = array('error' => false);
+		    //check if the filename is not empty
+			if(!empty($_FILES['file']['name'])){
 			
-						//upload path of the file
-						$config['upload_path'] = 'assets/images/';
-						$config['file_name'] = $_FILES['file']['name'];
-						//allwoed MIME type of the file
-						$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				//upload path of the file
+				$config['upload_path'] = 'assets/images/';
+				$config['file_name'] = $_FILES['file']['name'];
+				//allwoed MIME type of the file
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
 						
 			
-						$this->load->library('upload', $config);
-						$this->upload->initialize($config);
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
 						
-						//check if true uploading the file to the path
-						if($this->upload->do_upload('file')){
-							$uploadData = $this->upload->data();
-							$filename = $uploadData['file_name'];
+				//check if true uploading the file to the path
+				if($this->upload->do_upload('file')){
+					$uploadData = $this->upload->data();
+					$filename = $uploadData['file_name'];
 			
-							$file['filename'] = $filename;
-							//get the data from the users input
-							$id = $_POST['id'];
-							$data['photo'] = $file['filename'];
+					$file['filename'] = $filename;
+					//get the data from the users input
+					$id = $_POST['id'];
+					$data['photo'] = $file['filename'];
 							
-							//call the add function in the model	
-							$query = $this->dashboard_model->EditInfo($data,$id,'admin');
-							//check if the return of query is not empty
-							if($query != ""){
+					//call the add function in the model	
+					$query = $this->dashboard_model->EditInfo($data,$id,'admin');
+					//check if the return of query is not empty
+					if($query != ""){
 								
-								$output['error'] = false;
-								$output['message'] = $query;
+						$output['error'] = false;
+						$output['message'] = $query;
 			
-							}
-							else{
-								$output['error'] = true;
-								$output['message'] = 'Photo uploaded but not inserted to database';
-							}
-			
-						}else{
-			
-							$output['error'] = true;
-							$output['message'] = 'Cannot upload photo';
-							//$output['message'] = $_FILES['file']['name'];
-						}
-			
-					}else{
-			
+					}
+					else{
 						$output['error'] = true;
-						$output['message'] = 'Cannot upload empty photo';
+						$output['message'] = 'Photo uploaded but not inserted to database';
 					}
 			
-					echo json_encode($output);
-					 }
+				}else{
+			
+					$output['error'] = true;
+					$output['message'] = 'Cannot upload photo';
+					//$output['message'] = $_FILES['file']['name'];
+				}
+			
+			}else{
+			
+				$output['error'] = true;
+				$output['message'] = 'Cannot upload empty photo';
+			}
+			
+				echo json_encode($output);
+		}
 		//signup admin
 		public function addEstablishmentPhoto(){
 
@@ -167,13 +164,22 @@ class Uploader extends CI_Controller {
 							 $data['photo'] = $file['filename'];
 							 
 							 //call the add function in the model	
-							 $query = $this->dashboard_model->Add($data,'establishment');
+							 $query = $this->dashboard_model->AddEstablishment($data,'establishment');
 							 //check if the return of query is not empty
-							 if($query != ""){
+							 if($query != "Error"){
 								 
-								 $output['error'] = false;
-								 $output['message'] = $query;
-			 
+								 
+								 $datas['photo'] = $file['filename'];
+								 $datas['establishment_id'] = $query;
+								 $result = $this->dashboard_model->AddEstabPhoto($datas, "establishment_photo");
+
+								 if($result != "Error"){
+									$output['error'] = false;
+								    $output['message'] = $result;
+								 }else{
+									$output['error'] = false;
+								    $output['message'] = $result;
+								 }
 							 }
 							 else{
 								 $output['error'] = true;
@@ -238,6 +244,7 @@ class Uploader extends CI_Controller {
 						
 						$output['error'] = false;
 						$output['message'] = $query;
+						
 	
 					}
 					else{

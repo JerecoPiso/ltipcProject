@@ -13,18 +13,57 @@
             <h5 class="mt-2 text-center alert alert-info all-title"><b> <span class="fa fa-building"></span> Hotels / Establishments</b></h5>
      
     <div class="row all-spots">
-         	
+         	<!-- for the carousel  -->
+
        <?php 
 
            if($ret != false){ ?>
          	  
-         	  <?php foreach ($ret as $key => $value) { ?>
+         	  <?php $demoCounter = 1; foreach ($ret as $key => $value) { ?>
          	  	<!-- this is for the photo for the spot categories selected  -->
-         		<div class="col-lg-4 mt-3">
+         		<div class="col-lg-6 mt-3">
 
          		   <div class="card admin-card">
-	         			 <div class="card-header spot-head p-1"> 
-	         				<img class="spot-photo" src="<?php echo base_url();?>assets/images/<?=$value->photo?>">
+	         			 <div class="card-header spot-head p-1">
+						    <?php  $return = $this->dashboard_model->getHotelPhotos($value->id); ?>
+							<div id="demo<?php echo $demoCounter;?>" class="carousel slide demo" data-ride="carousel" >
+								<ul class="carousel-indicators">
+									<?php 
+										$ctr = 0; ?>
+										
+										
+										<?php foreach($return as $key => $values){ ?> 
+										
+											<li data-target="#demo" data-slide-to="<?php echo $ctr;?>" class="<?php if($ctr == 0){echo 'active';}?>"></li>
+
+										<?php  $ctr++;  } $ctr = 0; ?>
+										
+									<?php ?>   
+								</ul>
+								<div class="carousel-inner">
+
+									<?php 						
+											$counter = 0; ?>
+											<?php foreach($return as $photosValue){ ?>
+												<div  class="carousel-item <?php if($counter == 0){ 
+													echo 'active';}?>">
+												<img  src="<?php echo base_url();?>assets/images/<?= $photosValue->photo ?>" class="spot-photo" >
+														
+												</div>
+											<?php  echo $photosValue->photo; ?>
+											
+
+									<?php $counter++;	 }	$counter = 0;  ?>						
+								</div>
+  
+								<a class="carousel-control-prev" href="#demo<?php echo $demoCounter ;?>" data-slide="prev"  v-b-tooltip.hover title="Previous">
+									<span class="carousel-control-prev-icon"></span>
+								</a>
+								<a class="carousel-control-next" href="#demo<?php echo $demoCounter ;?>" data-slide="next"  v-b-tooltip.hover title="Next">
+									<span class="carousel-control-next-icon"></span>
+								</a>
+						</div> <!-- end id demo  for carousel-->
+	         				<!-- <img class="spot-photo" src="<?php echo base_url();?>assets/images/<?=$value->photo?>"> -->
 	         			 </div>
 	         			 <div class="card-body spot-body text-center p-1 spot-name">
 	         				  	<?= $value->name?>
@@ -54,7 +93,7 @@
          		</div><!--class col-lg-4 end-->
          			<?php	  	
          				  	
-         				  }/*for each end*/
+         			$demoCounter++;	  }/*for each end*/
 
          			?>
          		

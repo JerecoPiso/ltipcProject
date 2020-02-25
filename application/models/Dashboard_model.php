@@ -19,7 +19,8 @@
  				return false;
  			}
  			
- 		}
+		 }
+		 //function for recovering the forgotten password of account
  		function accountRecovery($data){
 
  			/*$query = $this->db->where('admin', array('name'=> $data['username'], 'hint' => $data['hint']));*/
@@ -81,20 +82,19 @@
 
 			return $ret->result();
 		}
+		/*FUNCTION FOR GETTING THE PHOTOS OF HOTELS*/
+		function getHotelPhotos($id){
+			$this->db->where("establishment_photo.establishment_id", $id);
+			$ret = $this->db->get("establishment_photo");
+			return $ret->result();
+		}
 		function getSpotsToPrint($table){
 			$this->db->from($table);
 			$this->db->order_by($table.".municipality");
 			$ret = $this->db->get();
 			return $ret->result();
 		}
-		/*getting the spots to print in the pdf*/
-		// function getSpotToPrint($table,$name){
-		// 	$this->db->where($table.'.municipality', $name);
-		// 	$this->db->group_by($table.'.category');
-		// 	$ret = $this->db->get($table);
-
-		// 	return $ret->result();
-		// }
+	
 		public function getTopDestination(){
 			$this->db->select('spots.id, spots.name, spots.photo, spots.category');
 			$this->db->from('spots');
@@ -138,6 +138,30 @@
 			}
 			
 		}
+		/*function for inserting datas of establiahment to database*/
+		function AddEstablishment($data,$table){
+
+			$this->db->where($table.'.name', $data['name']);
+			$ret = $this->db->get($table);
+
+			if($ret->num_rows() >= 1){
+
+				return $data['name'] . " is already existed!";
+
+			}else{
+
+				if($this->db->insert($table, $data)){
+
+					return $this->db->insert_id();
+
+				}else{
+
+					return "Error";
+				}
+
+			}
+			
+		}
 		/*function for inserting datas to database*/
 		function AddEstabPhoto($data,$table){
 
@@ -153,16 +177,6 @@
 		}
 		/*function for adding most popular destination*/
 		function popularDestination($data,$table){
-
-			// $this->db->where($table.'.name', $data['name']);
-			// $ret = $this->db->get($table);
-
-			// if($ret->num_rows() >= 1){
-
-			// 	return $data['name'] . " is already existed!";
-
-			// }else{
-
 				if($this->db->insert($table, $data)){
 					$status['top_destination_status'] = "Yes";
 					$this->db->where('spots.id', $data['spot_id']);
@@ -174,8 +188,6 @@
 
 					return "Error";
 				}
-
-			// }
 			
 		}
 		function useTheme($data){
@@ -199,6 +211,7 @@
 			}
 			
 		}
+		//changed the unused theme
 		function unuseTheme($data){
 			$status['status'] = "used";
 			if($this->db->update("themeused", $status)){
@@ -232,6 +245,11 @@
 					return "Error";
 				}		
 			
+		}
+		//delete establishment photo
+		function deleteEstabPhoto($id){
+			$this->db->where("establishment_photo.establishment_id", $id);
+		    $this->db->delete("establishment_photo");
 		}
 		/*function for deleting a data in database*/
 		public function removeTopDestination($id,$table){

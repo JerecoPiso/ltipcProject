@@ -252,26 +252,6 @@ class Dashboard extends CI_Controller {
 	 		echo $ret;
 
 	 	}
-	 
-	 	// public function addEstablishment(){
-
-	 	// 	if($_POST['name'] != "" && $_POST['location'] != "" && $_POST['rates'] != "" && $_POST['contact'] != "" && $_POST['other'] != ""){
-
-	 	// 		$data['name'] = $_POST['name'];
-	 	// 		$data['location'] = $_POST['location'];
-	 	// 		$data['rates'] = $_POST['rates'];
-		// 		$data['contact'] = $_POST['contact'];
-		// 		$data['other'] = $_POST['other'];
-	 	// 		$ret = $this->dashboard_model->Add($data,'establishment');
-
-	 	// 	}else{
-
-	 	// 		$ret = "All fields must be filled up!";
-	 	// 	}
-	 		
-	 	// 	echo $ret;
-
-	 	// }
 	 	//inserting new muncipality to the database
 	 	public function addMunicipality(){
 
@@ -330,7 +310,9 @@ class Dashboard extends CI_Controller {
 	 	function deleteEstablishment(){
 
 	 		$ret = $this->dashboard_model->Delete($_POST['id'], 'establishment');
-
+			if($ret != "Error"){
+				$this->dashboard_model->deleteEstabPhoto($_POST['id']);
+			}
 	 		echo json_encode($ret);
 	 	}
 	 	//controller for the deleting of municipality
@@ -502,7 +484,8 @@ class Dashboard extends CI_Controller {
 
 	 		echo json_encode($ret);
 
-	 	}
+		 }
+		
 	 	//getting the municipalities to be displayed in view
 	 	public function getMunicipalities(){
 	 		
